@@ -54,7 +54,7 @@ export class RequestsService {
     // Check if user is trying to update description
     if (updateRequestDto.description) {
       // Only owner can update description and only if status is PENDING
-      if (request.userId !== user.id) {
+      if (request.userId !== user.id && user.role !== 'ADMIN') {
         throw new ForbiddenException('Only the request owner can update the description');
       }
       
@@ -74,8 +74,4 @@ export class RequestsService {
     return this.requestsRepository.update(id, updateRequestDto);
   }
 
-  // Requests are never deleted according to requirements
-  // remove(id: number) {
-  //   return this.requestsRepository.delete(id);
-  // }
 }

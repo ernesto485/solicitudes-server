@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   async register(registerDto: any) {
-    const existingUser = await this.usersService.findByUsername(registerDto.username);
+    const existingUser = await this.usersService.findByUsername(registerDto.email);
     if (existingUser) {
       throw new Error('Username already exists');
     }

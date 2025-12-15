@@ -32,8 +32,8 @@ async function testRequestSystem() {
     // 1. Create admin user
     console.log('1. Creating admin user...');
     const adminData = JSON.stringify({
-      username: 'admin',
-      password: 'admin123',
+      username: 'admin2',
+      password: 'admin2123',
       role: 'ADMIN'
     });
     
